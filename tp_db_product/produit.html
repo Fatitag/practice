@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des produits</title>
+</head>
+<body>
+    <h2>Ajouter un produit</h2>
+    <form action="functions.php" method="post">
+        Libellé: <input type="text" name="libelle"><br>
+        Prix: <input type="text" name="prix"><br>
+        <input type="submit" name="ajouter" value="Ajouter">
+    </form>
+
+    <h2>Liste des produits</h2>
+    <ul>
+        <?php foreach ($produits as $produit): ?>
+            <li><?php echo $produit['libelle']; ?> - <?php echo $produit['prix']; ?>
+                <form action="functions.php" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="<?php echo $produit['id']; ?>">
+                    <input type="submit" name="modifier" value="Modifier">
+                </form>
+                <form action="functions.php" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="<?php echo $produit['id']; ?>">
+                    <input type="submit" name="supprimer" value="Supprimer">
+                </form>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+</html>
