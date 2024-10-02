@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Gestion des Produit API</h1>
+
+    <div class="main">
+      <div>
+        <div>
+          <label>libelle:</label>
+          <select id="Produit" onchange="OnchangePrix()"></select>
+        </div>
+        <div>
+          <label>prix : </label>
+          <span id="prix"> </span>
+        </div>
+      </div>
+      <div>
+        <div>
+          <label> Quantitéé :</label>
+          <input type="number" class="Qt" />
+        </div>
+        <div>
+          <button onclick="AddProduitsList()" class="btnaddprod">Ajouter</button>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Prix</th>
+            <th>Quantitée</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
+      <div class="Total">
+        <h4> Prix Total :  </h4>
+        <span id="prix_total"></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

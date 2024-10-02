@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    background-color: black;
+    text-decoration: none;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    z-index: 100; 
+    position: fixed;
+}
+
+li {
+    width: 50%;
+    margin: 20px;
+    text-decoration: none;
+    border: 2px solid;
+    display: inline;
+}
+
+a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('eheitest/fonts/Poppins-Regular.woff');
+}
+
+.parallax {
+    position: relative;
+    height: 100vh;
+    background: url('images/pic4.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+table {
+    border-radius: 15px;
+    background: rgba(61, 56, 56, 0.592);
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    line-height: 30px;
+    transform: translate(-50%, -50%);
+}
+
+table th {
+    font-size: 20px;
+    color: white;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+    color: rgb(37, 30, 30);
+}
+.line {
+    width: 70%; 
+    height: 13px; 
+    background-color: rgb(59, 57, 57); 
+    margin: 20px auto; 
+}
+p{
+    text-indent: 50px;
+    width: 70%;
+    margin: auto;
+  
+}
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin: 0%;
+    padding: 0%;
+}
+
+.image-container img {
+    width: 90%;
+    height: auto; 
+    margin-top: 10px;
+    background-size: cover;
+    padding: 10px;
+    border-spacing: 2%;
+
+
+}
+img{
+background-size: cover;
+width: 30px;}

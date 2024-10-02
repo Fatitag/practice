@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="inscription-form">
+        
+        <div>
+          <label for="inscription-number">N° Inscription:</label>
+          <input type="text" id="inscription-number" name="inscription-number" required>
+          <span class="error-message" id="inscription-number-error"></span>
+        </div>
+        <div>
+          <label for="nom">Nom:</label>
+          <input type="text" id="nom" name="nom" required>
+          <span class="error-message" id="nom-error"></span>
+        </div>
+        <div>
+          <label for="prenom">Prénom:</label>
+          <input type="text" id="prenom" name="prenom" required>
+          <span class="error-message" id="prenom-error"></span>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <span class="error-message" id="email-error"></span>
+        </div>
+        <div>
+          <label for="telephone">Téléphone:</label>
+          <input type="tel" id="telephone" name="telephone" required>
+          <span class="error-message" id="telephone-error"></span>
+        </div>
+        <div>
+          <label for="date-naissance">Date de naissance:</label>
+          <input type="date" id="date-naissance" name="date-naissance" required>
+          <span class="error-message" id="date-naissance-error"></span>
+        </div>
+        <button type="submit" id="submit-btn">Envoyer</button>
+      </form>
+      <div id="inscription-data"></div>
+      
+      <script>
+      const form = document.querySelector('#inscription-form');
+        const inscriptionNumberInput = document.querySelector('#inscription-number');
+        const nomInput = document.querySelector('#nom');
+        const prenomInput = document.querySelector('#prenom');
+        const emailInput = document.querySelector('#email');
+        const telephoneInput = document.querySelector('#telephone');
+        const dateNaissanceInput = document.querySelector('#date-naissance');
+        const submitBtn = document.querySelector('#submit-btn');
+        const inscriptionDataDiv = document.querySelector('#inscription-data');
+
+        const formData = new FormData(form);
+        const formObject = {};
+        formData.forEach(function(value, key){
+            formObject[key] = value;
+        });
+        const jsonData = JSON.stringify(formObject);
+        console.log(jsonData);
+
+        // Ajouter un écouteur d'événement pour le soumission du formulaire
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Empêcher l'envoi du formulaire par défaut
+
+  // Valider tous les champs du formulaire
+  const isValid = validateForm();
+
+  // Si le formulaire est valide, stocker les données dans un objet JSON
+  if (isValid) {
+    const inscriptionData = {
+      inscriptionNumber: inscriptionNumberInput.value.trim(),
+      nom: nomInput.value.trim(),
+      prenom: prenomInput.value.trim(),
+      email: emailInput.value.trim(),
+      telephone: telephoneInput.value.trim(),
+      dateNaissance: dateNaissanceInput.value.trim()
+    };
+
+    // Convertir l'objet JSON en chaîne de caractères
+    const inscriptionDataString = JSON.stringify(inscriptionData);
+
+    // Afficher les données dans la balise "div"
+    inscriptionDataDiv.innerHTML = `<p>Les données d'inscription sont :</p><pre>${inscriptionDataString}</pre>`;
+  }
+});
+
+        // Validation functions
+        function validateInscriptionNumber() {
+          const value = inscriptionNumberInput.value.trim();
+          if (value === '') {
+            setError(inscriptionNumberInput, 'Le numéro d’inscription est obligatoire.');
+            return false;
+          } else if (isNaN(value) || value < 1 || value > 30) {
+            setError(inscriptionNumberInput, 'Le numéro d’inscription doit être un nombre entre 1 et 30.');
+            return false;
+          } else {
+            setSuccess(inscriptionNumberInput);
+            return true;
+          }
+        }
+      
+        function validateNom() {
+          const value = nomInput.value.trim();
+          const pattern = /^[a-zA-Z]+$/;
+          if (value === '') {
+            setError(nomInput, 'Le nom est obligatoire.');
+            return false;
+          } else if (!pattern.test(value)) {
+            setError(nomInput, 'Le nom ne doit contenir que des lettres alphabétiques.');
+            return false;
+          } else {
+            setSuccess(nomInput);
+            return true;
+          }
+        }
+        function validatePrenom() {
+    const value = prenomInput.value.trim();
+const pattern = /^[a-zA-Z]+$/;
+if (value === '') {
+setError(prenomInput, 'Le prénom est obligatoire.');
+return false;
+} else if (!pattern.test(value)) {
+setError(prenomInput, 'Le prénom ne doit contenir que des lettres alphabétiques.');
+return false;
+} else {
+setSuccess(prenomInput);
+return true;
+}
+}
+
+function validateEmail() {
+const value = emailInput.value.trim();
+const pattern = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+if (value === '') {
+setError(emailInput, 'L’email est obligatoire.');
+return false;
+} else if (!pattern.test(value)) {
+setError(emailInput, 'L’email n’est pas valide.');
+return false;
+} else {
+setSuccess(emailInput);
+return true;
+}
+}
+
+function validateTelephone() {
+const value = telephoneInput.value.trim();
+const pattern = /^(05|06|07)\d{8}$/;
+if (value === '') {
+setError(telephoneInput, 'Le numéro de téléphone est obligatoire.');
+return false;
+} else if (!pattern.test(value)) {
+setError(telephoneInput, 'Le numéro de téléphone n’est pas valide.');
+return false;
+} else {
+setSuccess(telephoneInput);
+return true;
+}
+}
+
+function validateDateNaissance() {
+const value = dateNaissanceInput.value;
+const now = new Date();
+const selectedDate = new Date(value);
+if (value === '') {
+setError(dateNaissanceInput, 'La date de naissance est obligatoire.');
+return false;
+} else if (selectedDate > now) {
+setError(dateNaissanceInput, 'La date de naissance ne doit pas être dans le futur.');
+return false;
+} else {
+setSuccess(dateNaissanceInput);
+return true;
+}
+}
+
+function setError(input, message) {
+input.classList.add('error');
+input.classList.remove('success');
+const errorSpan = input.nextElementSibling;
+errorSpan.innerText = message;
+}
+
+function setSuccess(input) {
+input.classList.add('success');
+input.classList.remove('error');
+const errorSpan = input.nextElementSibling;
+errorSpan.innerText = '';
+}
+
+// Event listeners
+form.addEventListener('submit', function(event) {
+event.preventDefault();
+let isValid = true;
+if (!validateInscriptionNumber()) {
+isValid = false;
+}
+if (!validateNom()) {
+isValid = false;
+}
+if (!validatePrenom()) {
+isValid = false;
+}
+if (!validateEmail()) {
+isValid = false;
+}
+if (!validateTelephone()) {
+isValid = false;
+}
+if (!validateDateNaissance()) {
+isValid = false;
+}
+if (isValid) {
+const inscriptionData = {
+inscriptionNumber: inscriptionNumberInput.value,
+nom: nomInput.value,
+prenom: prenomInput.value,
+email: emailInput.value,
+telephone: telephoneInput.value,
+dateNaissance: dateNaissanceInput.value
+};
+inscriptionDataDiv.innerText = JSON.stringify(inscriptionData);
+form.reset();
+}
+});
+
+
+
+</script>
+</body>
+</html>
+
