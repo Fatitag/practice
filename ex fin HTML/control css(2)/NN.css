@@ -1,0 +1,32 @@
+body{
+    background-image: url(fond.jpeg) ;
+    background-repeat: repeat-y;
+
+}
+table{
+    border: blue solid 2px;
+    text-align: center;
+    border-collapse: collapse;
+}
+#pop{
+    background-color: rgb(200, 230, 240);
+    vertical-align: top;
+
+}
+.MOY{
+    background-color: #e6fabe;
+}
+.AUT{
+    background-color: #e6befa;
+
+}
+caption{
+    caption-side: bottom;
+    color: rgb(185, 115, 145);
+    font-size:16px;
+    font-weight: bold;
+}
+th,td{
+    border: blue solid 2px;
+
+}

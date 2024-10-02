@@ -1,0 +1,10 @@
+body{
+    color: blue;
+    background: url(IMG-20211126-WA0004.jpg)no-repeat,url(IMG-20211126-WA0004.jpg)no-repeat bottom right;
+     
+}
+.c2{
+    border: red dashed;
+    border-radius: 15px;
+
+}

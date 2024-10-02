@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>var produit, pu, qte, ht, tva, ttc;
+
+produit = prompt("Veuillez saisir le produit");
+pu = prompt("Veuillez saisir le PU");
+qte = prompt("Veuillez saisir la Qté");
+
+if (produit !== null && pu !== null && qte !== null) {
+
+  if (isFinite(pu) && isFinite(qte)) {
+
+    htpu = pu * qte;
+    tva = htpu * 0.2;
+    ttc = htpu + tva;
+
+    var chaine = "<table border='1' cellspacing='0'>";
+    chaine += "<tr><th>Produit</th>";
+    chaine += "<th>PU</th>";
+    chaine += "<th>Qté</th>";
+    chaine += "<th>THT</th>";
+    chaine += "<th>TVA</th>";
+    chaine += "<th>TTC</th></tr>";
+
+    chaine += "<tr><td>" + produit + "</td>";
+    chaine += "<td>" + pu + " DH</td>";
+    chaine += "<td>" + qte + "</td>";
+    chaine += "<td>" + htpu + " DH</td>";
+    chaine += "<td>" + tva + " Di</td>";
+    chaine += "<td>" + ttc + " DH</td>";
+
+    chaine += "</tr></table>";
+
+    document.write(chaine);
+
+  }
+} else {
+  alert("Veuillez saisir toutes les informations d'une façon correcte");
+}
+</script>
+</body>
+</html>

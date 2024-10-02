@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>flexbox</title>
+    <style>*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+        color: white;
+        justify-content: center;
+        text-align: center;
+
+    }
+    body{
+        margin: auto;
+        width: 30%;
+    }
+    
+    .header{
+        background-color: #81d8f6;
+        height: 60px;
+        text-align: center;
+    }
+    
+    .hero{
+        background-color: #e0d7ea;
+    }
+    
+    .sidebar{
+        background-color: #c6e2a7;
+    }
+    
+    .main{
+        background-color: #fecd4c;
+    }
+    
+    .extra{
+        background-color: #acabb0;
+    }
+    
+    .related{
+        background-color: #7ecea7;
+    }
+    
+    .posts{
+        background-color: #f7d2e3;
+    }
+    
+    .footer{
+        background-color: #f7b16c;
+    }
+    
+    .container{
+        display: flex;
+        height: 300px;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .container .left{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 10px;
+    }
+    .container .left .hero{
+        display: flex;
+        flex-grow: 3;
+    }
+    .container .left .sidebar{
+        display: flex;
+        flex-grow: 7;
+    }
+    
+    .container .right{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 2;
+        gap: 10px;
+    }
+    
+    .container .right .main{
+        display: flex;
+        flex-grow: 3;
+    }
+    .container .right .extra{
+        display: flex;
+        flex-grow: 1;
+    }
+    
+    .center {
+        display: flex;
+        gap: 10px;
+        height: 100px;
+        margin-top: 10px;
+    }
+    .center .related{
+        display: flex;
+        flex-grow: 2;
+    }
+    .center .posts{
+        display: flex;
+        flex-grow: 1;
+    }
+    
+    .footer{
+        height: 60px;
+        margin-top: 10px;
+    }</style>
+</head>
+<body>
+
+    <div class="header">header</div>
+
+<section class="container">
+    <div class="left">
+
+        <div class="hero">hero</div>
+        <div class="sidebar">sidebar</div>
+
+    </div>
+
+    <div class="right">
+        <div class="main">main content</div>
+        <div class="extra">extra content</div>
+    </div>
+
+</section>
+
+    <div class="center">
+        <div class="related">related images</div>
+        <div class="posts">related posts</div>
+    </div>
+
+    <div class="footer">footer</div>
+
+</body>
+</html>

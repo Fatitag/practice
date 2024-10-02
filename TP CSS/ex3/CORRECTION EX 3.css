@@ -1,0 +1,81 @@
+body{
+    background: url(helo.jpg);
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+h1 {
+    text-align: center;
+    left: 300px;
+    font-size: 50px;
+    
+}
+h3{
+    text-align: center;
+  
+}
+a {
+    color: aliceblue;
+    
+}
+ .ch{
+     
+     background-color: rgb(12, 8, 32);
+     border-radius:50px;
+     position: right;
+     width: 100%;
+    text-align: center;
+     font-size: 30px;
+      
+     
+ }
+ .cht{
+     text-align:right;
+     background-color: rgb(27, 14, 58);
+     background-origin: border-box;
+ }
+ .chat{
+     background-color: aliceblue;
+     color: black;
+     
+ }
+ .haha{
+     border: solid;
+     border-radius: 15px;
+     background-color: rgb(219, 219, 106);
+     width: 70%;
+     color:white;
+     font-size: 50px;
+ 
+
+ }
+ .baba{
+    border: solid;
+    border-radius: 15px;
+    background-color: orangered;
+    width: 70%;
+    color:white;
+    font-size: 50px;
+    
+}
+.tata{
+    border: solid;
+    border-radius: 15px;
+    background-color: rgb(245, 110, 110);
+    width: 70%;
+    color:white;
+    font-size: 50px;
+    
+}
+.mama{
+    border: solid;
+    border-radius: 15px;
+    background-color: rgb(133, 72, 168);
+    width: 70%;
+    color:white;
+    font-size: 50px;
+   
+}
+.mm{
+    font-size: 30px;
+   
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes des étudiants</title>
+    <style>
+        form {
+            width: 400px;
+            margin: auto;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Notes des étudiants</legend>
+            <label for="notes">Les notes</label>
+            <button type="button" onclick="afficherNotes()">Afficher les notes</button><br><br>
+            <label for="reussites">Les réussites</label>
+            <button type="button" onclick="compterReussites()">Compter les réussites</button><br><br>
+            <label for="moyenne">La moyenne</label>
+            <button type="button" onclick="calculerMoyenne()">Calculer la moyenne</button><br><br>
+            <label for="minmax">max/min</label>
+            <button type="button" onclick="trouverMinMax()">Trouver les notes Max et Min</button><br><br>
+            <label for="chercherNote">Chercher note</label>
+            <input type="number" id="chercherNote" style="width: 30px;">
+            <button type="button" onclick="rechercherNote()">Rechercher une note</button>
+        </fieldset>
+    </form>
+    <div id="display"></div>
+
+    <script>
+        var notes = [12, 15, 8, 18, 10];
+        function afficherNotes() {
+            document.getElementById('display').innerHTML = "Notes des étudiants : " + notes;
+        }
+        function compterReussites() {
+            document.getElementById('display').innerHTML = "Nombre d'étudiants avec des notes supérieures à 10 : " + notes.filter(note => note > 10);
+        }
+        function calculerMoyenne() {
+            var moyenne = (notes.reduce((total, note) => total + note) / notes.length);
+            document.getElementById('display').innerHTML = "Moyenne des notes : " + moyenne;
+        }
+        function trouverMinMax() {
+            document.getElementById('display').innerHTML = "Note maximale : " + Math.max(...notes) + ", Note minimale : " + Math.min(...notes);
+        }
+        function rechercherNote() {
+            var noteRecherchee = document.getElementById('chercherNote').value;
+            var result = notes.includes(Number(noteRecherchee));
+            document.getElementById('display').innerHTML = result;
+        }
+    </script>
+</body>
+</html>

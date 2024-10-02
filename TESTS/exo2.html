@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur DH vers $</title>
+</head>
+<body>
+    <input type="number" name="DH" id="DH">
+    <label for="DH">DH</label>
+    <br><br>
+    <input type="button" value="Convertir DH vers S" onclick="convertir()">
+    <br><br>
+    <p id="display"></p>
+
+    <script>
+        function convertir() {
+            var DH =document.getElementById("DH").value;
+            var dollar = DH  / 10;
+            document.getElementById("display").innerHTML =  + DH + " DH =" + dollar +"$";
+        }
+    </script>
+</body>
+</html>

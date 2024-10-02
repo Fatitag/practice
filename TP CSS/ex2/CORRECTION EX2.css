@@ -1,0 +1,16 @@
+P{ 
+    background:url(IMG-20211126-WA0005.jpg) no-repeat;
+    background-origin: border-box;
+    border: solid 1px;
+    padding: 20px;
+   
+}
+.c1{ 
+    background:url(IMG-20211126-WA0005.jpg)no-repeat;
+    background-origin: content-box;
+    border: solid 1px;
+    width: 50%;
+    position: absolute;
+    left: 300px;
+    
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjugueur Automatique</title>
+    <style>
+    h2{
+        text-decoration:underline;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    label {
+        font-weight: bold;
+        color: #0e36c4;
+    }
+    #verbe{
+        padding: 8px;
+        width: 200px;
+        margin-bottom: 10px;
+    }
+    #present {
+        margin-right: 5px;
+        accent-color: rgb(7, 7, 7);
+    }
+    button {
+        padding: 10px;
+        background-color: #0202029e;
+        color: #fff;
+        border: none;
+    }
+    #display {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h2>Conjugueur </h2>
+    <label for="verbe">Verbe du premier groupe:</label>
+    <input type="text" id="verbe" placeholder="entrer un verbe">
+    <br><br>
+    <label>Le temps:</label>
+    <label for="present">Présent</label>
+    <input type="radio" id="present" value="present" checked>
+    <!-- <label for="future">future</label>
+    <input type="radio" id="future" value="future">
+    <label for="passe">passé</label>
+    <input type="radio" id="passe" value="passe"> -->
+    <br><br>
+    <button onclick="conjuguer()">Conjuguer</button>
+    <br><br>
+    <div id="display"></div>
+    <script>
+        function conjuguer() {
+            var verbe = document.getElementById('verbe').value;
+            var newv = verbe.slice(0, -2);
+                document.getElementById("display").innerHTML=("Je "+newv+"e <br>"
+                +"Tu "+newv+"es"
+                +"Il/elle "+newv+"e"
+                +"Nous "+newv+"ons"
+                +"Vous "+newv+"ez"
+                +"Ils/elles "+newv+"ent"
+                );}
+    </script>
+</body>
+</html>

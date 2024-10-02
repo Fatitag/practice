@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px 10px black;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #708296;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #a9d3ff;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        #difference {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Text Comparison</h2>
+        <label for="t1">Text 1:</label><br>
+        <textarea id="t1" rows="4"></textarea><br>
+        <label for="t2">Text 2:</label><br>
+        <textarea id="t2" rows="4"></textarea><br><br>
+        <button onclick="compar()">Compare Texts</button>
+    </div>
+    <div id="difference" style="display: none;"></div>
+
+    <script>
+        function compar() {
+            var t1 = document.getElementById('t1').value;
+            var t2 = document.getElementById('t2').value;
+            var differences = [];
+
+            for (var i = 0; i < Math.max(t1.length, t2.length); i++) {
+                if (t1[i] !== t2[i]) {
+                    differences.push(i);
+                }
+            }
+            var diff1 = highlight(t1, differences);
+            var diff2 = highlight(t2, differences);
+            document.getElementById('difference').innerHTML = `<p>Differences:</p><p>Text 1: ${diff1}</p><p>Text 2: ${diff2}</p>`;
+            document.getElementById('difference').style.display = 'block'; 
+        }
+
+        function highlight(text, differences) {
+            var mark = '';
+            for (var i = 0; i < text.length; i++) {
+                if (differences.includes(i)) {
+                    mark += `<span class="highlight">${text[i]}</span>`;
+                } else {
+                    mark += text[i];
+                }
+            }
+            return mark;
+        }
+    </script>
+</body>
+</html>

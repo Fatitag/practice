@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Times</title>
+    <style>
+        #show {
+            border: 3px solid #000;
+            width: 160px;
+        }
+        ul{
+list-style-type: none;
+}
+
+    </style>
+</head>
+<body>
+    <h2>Prayer Times</h2>
+    <div id="show">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <button onclick="getLocation()">Afficher</button>
+    <script>
+        function getLocation() {
+            document.getElementById("show").innerHTML = "Chargement...";
+            navigator.geolocation.getCurrentPosition(show);
+        }
+        function show(position){
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            var xhr = new XMLHttpRequest();
+            xhr.onloadstart = function() {
+                document.getElementById("show").innerHTML = "Chargement...";
+            };
+            xhr.open('GET', 'http://api.aladhan.com/v1/calendar?latitude=' + lat + '&longitude=' + long);
+            xhr.onload = function() {
+                var data = JSON.parse(xhr.responseText);
+                var d = new Date();
+                var fajrTime = data.data[d.getDate() - 1].timings.Fajr;
+                var dhuhrTime = data.data[d.getDate() - 1].timings.Dhuhr;
+                var asrTime = data.data[d.getDate() - 1].timings.Asr;
+                var maghribTime = data.data[d.getDate() - 1].timings.Maghrib;
+                var ishaTime = data.data[d.getDate() - 1].timings.Isha;
+                var prayerTimes = "Fajr: " + fajrTime + "<br>" +
+                                  "Dhuhr: " + dhuhrTime + "<br>" +
+                                  "Asr: " + asrTime + "<br>" +
+                                  "Maghrib: " + maghribTime + "<br>" +
+                                  "Isha: " + ishaTime;
+                document.getElementById("show").innerHTML = prayerTimes;
+            };
+            xhr.onerror = function() {
+                alert('La requête a échoué');
+            };
+            xhr.onloadend = function() {
+            };
+            xhr.send();
+        }
+    </script>
+     
+    
+</body>
+</html>

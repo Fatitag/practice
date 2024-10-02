@@ -1,0 +1,93 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    
+    src: url(font_family/Poppins-Regular.ttf);
+    font-family: poppins;
+}
+ul{
+    background: #555;
+    text-align: center;
+    padding: 1.5rem;
+}
+li{
+    text-decoration: none;
+    text-align: center;
+    display: inline;
+    padding-left: 3rem;
+    font-family: poppins;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+h1{
+    background-color: rgba(0, 0, 0, 0.589);
+    color: white;
+    text-align: center;
+    width:50%;
+    padding: 20px;
+    border-radius: 1rem;
+    margin: auto;
+    margin-top: 210px;
+    margin-bottom: 250px;
+    font-family: poppins;
+}
+.bg{
+    background-image:url(backgroundEHEI.jpg) ;
+    display: flex;
+    background-attachment: fixed;
+    margin-bottom: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+p{
+    text-align: center;
+    font-family: poppins;
+    color: black;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+
+}
+hr{
+    background-color: #555;
+    height: 10px;
+}
+.para{
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+}
+.paragraphe{
+    padding-top: 2rem;
+    text-align: left;
+    text-indent: 20px;
+}
+table{
+    text-align: center;
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 5%;
+}
+img{
+    width: 100%;
+    
+}
+.mil{
+    width: 32%;
+}
+.GI{
+    font-family: poppins;
+    color: blue;
+}
+.GSI{
+    font-family: poppins;
+    color: #555;
+}
+.IG{
+    font-family: poppins;
+    color: red;
+}

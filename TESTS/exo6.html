@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Devinette Simple</title>
+    <style>
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin-right: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+
+        }
+
+       
+    </style>
+</head>
+<body>
+    <h2>Jeu de Devinette</h2>
+    <p>Devinez un nombre entre 1 et 10 :</p>
+    <input type="number" id="guess" placeholder="Votre proposition">
+    <button onclick="verifierPropo()">Vérifier</button>
+    <div id="display"></div>
+    <script>
+        var random = Math.floor(Math.random() * 10) + 1;
+        function verifierPropo() {
+            var propo = document.getElementById("guess").value;
+            if (isNaN(propo) || propo < 1 || propo > 10) {
+                alert("Veuillez entrer un nombre entre 1 et 10");
+                return;
+            }
+            if (parseInt(propo) == random) {
+                document.getElementById("display").innerHTML = "Yahoo, vous avez deviné le bon nombre !";
+            } else {
+                document.getElementById("display").innerHTML = "Réessayez ! Le bon nombre est " + random;
+            }
+        }
+    </script>
+</body>
+</html>

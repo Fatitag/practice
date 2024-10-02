@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Formulaire</h2>
+    <form onsubmit="return valider()">
+        <label>Nom</label>
+        <input type="text" id="nom">
+        <div id="erreurnom" style="color: red;"></div><br>
+        <label>Age</label>
+        <input type="number" id="age">
+        <div id="erreurage" style="color: red;"></div><br>
+        <input type="submit" value="Envoyer">
+    </form>
+    <script>
+        function valider() {
+            var nom = document.getElementById("nom").value;
+            var age = document.getElementById("age").value;
+            if (nom.length < 3 || nom.length > 30) {
+                document.getElementById("erreurnom").innerHTML = "Le nom est invalide.";
+                return false;
+            }
+            if (age <= 0 || age >= 60) {
+                document.getElementById("erreurage").innerHTML = "L'age est invalide.";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

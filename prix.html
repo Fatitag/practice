@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="list">sélectionner un produit :</label>
+    <select id="produit">
+        <option value="produit 1">produit 1</option>
+        <option value="produit 2">produit 2</option>
+        <option value="produit 3">produit 3</option>
+    </select>
+    <br><br>
+    <label for="list">prix unitaire :</label>
+    <input type="number" id="prixUnitaire" placeholder="prixunitaire"/>
+    <br><br>
+    <label for="list">quantité :</label>
+    <input type="number" id="quantite" placeholder="quantite"/>
+    <br><br>
+    <input type="button" value="calculer" onclick="calculer()"/>
+    <p id="display"></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        
+        $(document).ready(function(calculer){
+            alert("hello");
+        });
+     function calculer(){
+            var produit =$("produit").val();
+            var quantite =$("quantite").val();
+            var prixUnitaire =$("prixUnitaire").val();
+            var HT = prixUnitaire * quantite;
+            var TVA = HT * 0.2;
+            var TTC = TVA + HT;
+            $("display").prepend= "le produit " +produit + " avec PU " +prixUnitaire + "est commandé avec une quantité de "+quantite +".Le prix HT est "+HT +", la TVA est " +TVA +" et le prix TTC est " +TTC;
+
+           }
+    </script>
+    
+</body>
+</html>
